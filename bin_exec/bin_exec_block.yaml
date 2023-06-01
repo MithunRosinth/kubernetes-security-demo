@@ -2,13 +2,13 @@ apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
   name: prevent-binary-execution
-  namespace: default
+  namespace: kubesec-demo
 spec:
   tags: ["k8s-sec-demo"]
   message: "Alert! Test 1 binary executed by unauthorized user"
   selector:
     matchLabels:
-      pod: testpod   #change this label with your label
+      app: binexec   #change this label with your label
   process:
     severity: 5
     matchPaths:
